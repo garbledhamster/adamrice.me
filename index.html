@@ -77,6 +77,24 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        .embed-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 0;
+            padding-bottom: 177.78%; /* 16:9 aspect ratio */
+            margin: 20px 0;
+        }
+
+        .embed-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -110,11 +128,13 @@
         <h2>Support My Journey</h2>
         <p>If you'd like to support me, check out my GoFundMe or TikTok.</p>
         <p><a href="https://www.gofundme.com/manage/keep-adam-and-his-child-together?fss=1" target="_blank">GoFundMe</a></p>
-        <p><a href="https://www.tiktok.com/t/ZT21GUjtS/" target="_blank">TikTok</a></p>
+        <div class="embed-container">
+            <iframe src="https://www.tiktok.com/embed/7460211367799393582" allowfullscreen></iframe>
+        </div>
     </section>
 
     <footer>
-        <p>Website by a caring cousin ❤️</p>
+        <p>Website by a <a href="https://joerice.me" target="_blank">caring cousin</a> ❤️</p>
     </footer>
 </body>
 </html>

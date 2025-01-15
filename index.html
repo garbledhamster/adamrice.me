@@ -1,30 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adam Rice | Personal Space</title>
+    <!-- REQUIRED META TAGS -->
+    <meta charset="UTF-8" />
+    <meta name="description"
+          content="Personal and Professional Website for Adam Rice. Learn about Adam's journey, his values, and ways to support him." />
+    <meta name="keywords" content="Adam Rice, personal site, professional profile, DBT, personal journey, resilience" />
+    <meta name="author" content="Adam Rice" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- PAGE TITLE -->
+    <title>Adam Rice | Personal &amp; Professional Overview</title>
+
+    <!-- FAVICONS & MANIFEST -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
+    <link rel="manifest" href="images/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="images/favicons/favicon.ico" type="image/x-icon">
+
+    <!-- THEME COLOR -->
+    <meta name="theme-color" content="#1a1a1a" />
+
+    <!-- OPEN GRAPH (FACEBOOK, LINKEDIN, ETC.) -->
+    <meta property="og:title" content="Adam Rice | Personal &amp; Professional Overview" />
+    <meta property="og:description"
+          content="Learn about Adam Rice's journey, professional background, and how to support his goals.">
+    <meta property="og:image" content="images/icon.png" />
+    <meta property="og:url" content="https://adamrice.me" />
+    <meta property="og:type" content="website" />
+
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Adam Rice | Personal &amp; Professional Overview">
+    <meta name="twitter:description"
+          content="Explore Adam Rice's personal journey and professional profile. Support his mission and discover his skills.">
+    <meta name="twitter:image" content="images/icon.png">
+
+    <!-- STYLE -->
     <style>
         :root {
-            --primary-color: #1a1a1a; /* Dark color */
-            --secondary-color: #f4f4f4; /* Light color */
+            --primary-color: #1a1a1a;      /* Dark background */
+            --secondary-color: #f4f4f4;    /* Light text */
+            --accent-color: #2dce89;       /* Buttons and highlights */
         }
 
+        /* GLOBAL STYLES */
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            /* Switch to a serif font family for a more professional look */
+            font-family: Georgia, 'Times New Roman', serif;
             background-color: var(--primary-color);
             color: var(--secondary-color);
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             min-height: 100vh;
             text-align: center;
         }
 
         header {
-            margin-bottom: 20px;
+            margin: 20px 0;
         }
 
         h1 {
@@ -33,8 +70,9 @@
         }
 
         p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin: 10px 0;
+            line-height: 1.5;
         }
 
         .section {
@@ -42,7 +80,8 @@
             padding: 20px;
             border: 2px solid var(--secondary-color);
             border-radius: 10px;
-            max-width: 600px;
+            max-width: 700px;
+            width: 90%;
         }
 
         .quote {
@@ -50,21 +89,72 @@
             margin: 10px 0;
         }
 
-        .favorites {
+        /* ABOUT ME (CLICK-TO-REVEAL) */
+        .about-me {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 10px;
         }
 
-        .favorites div {
-            padding: 10px;
-            border: 1px solid var(--secondary-color);
+        /* Each button-like item */
+        .favorite-item {
+            display: inline-block;         /* Auto-width based on text */
+            padding: 8px 12px;            /* Some padding around text */
+            margin: 5px;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Hover feedback */
+        .favorite-item:hover {
+            background-color: #25a973;    /* Slightly darker accent */
+            transform: translateY(-2px);  /* Subtle lift effect */
+        }
+
+        /* EMBED CONTAINER FOR TIKTOK */
+        .embed-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 0;
+            padding-bottom: 177.78%; /* Aspect ratio for TikTok */
+            margin: 20px auto;
+        }
+
+        .embed-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 750px;
+            border: none;
+            background-color: black;
+        }
+
+        /* GoFundMe Button */
+        .donation-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 10px 20px;
+            margin: 10px 0;
             border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .donation-button:hover {
+            background-color: #25a973;
         }
 
         footer {
-            margin-top: 30px;
+            margin: 30px 0;
             font-size: 0.9rem;
         }
 
@@ -77,64 +167,131 @@
         footer a:hover {
             text-decoration: underline;
         }
-
-        .embed-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            height: 0;
-            padding-bottom: 177.78%; /* 16:9 aspect ratio */
-            margin: 20px 0;
-        }
-
-        .embed-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
     </style>
 </head>
+
 <body>
+
+    <!-- HEADER -->
     <header>
         <h1>Adam Rice</h1>
-        <p>Welcome to my personal space on the web.</p>
+        <p>Welcome to my personal and professional space on the web.</p>
     </header>
 
+    <!-- ABOUT SECTION -->
     <section class="section">
         <h2>About Me</h2>
-        <p>Hey, I’m Adam. I’m navigating life with resilience and working to build a brighter future for myself and my child. This is my space to share who I am with the world.</p>
+        <p>Hey, I’m Adam. I’m navigating life with resilience and working to build a brighter future for myself and my
+            child. This site reflects who I am: a dedicated father, a lifelong learner, and someone striving for growth
+            every day.</p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in elementum nunc.
+            Nulla vitae sem vel libero viverra posuere non a leo. Donec scelerisque massa ac congue venenatis.
+            Maecenas in quam suscipit, pharetra ante non, aliquam arcu.
+        </p>
     </section>
 
+    <!-- PROFESSIONAL BACKGROUND SECTION -->
+    <section class="section">
+        <h2>Professional Background</h2>
+        <p>
+            I have experience in various roles, from customer service to technical troubleshooting.
+            My passion for problem-solving and helping others drives me in every position I hold.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo nisl at tristique cursus.
+            Fusce vestibulum, enim vel tempus mattis, velit diam rhoncus leo, eget consequat enim urna ut velit.
+            Integer finibus nunc non odio bibendum, id cursus metus tincidunt.
+        </p>
+        <p>
+            I'm eager to bring my dedication and resilience to an organization that values growth, development, and
+            community support.
+        </p>
+    </section>
+
+    <!-- FAVORITE QUOTES SECTION -->
     <section class="section">
         <h2>Favorite Quotes</h2>
         <p class="quote">"The only way out is through."</p>
         <p class="quote">"Life is 10% what happens to us and 90% how we react to it."</p>
     </section>
 
+    <!-- INTERACTIVE ABOUT ME SECTION -->
     <section class="section">
-        <h2>Favorite Things</h2>
-        <div class="favorites">
-            <div>📚 Reading</div>
-            <div>🎥 Movies</div>
-            <div>🐛 Bugs</div>
-            <div>🧠 DBT & Growth</div>
+        <h2>About Me (Click each to reveal more)</h2>
+        <div class="about-me">
+            <!-- Instead of separate title/content elements, we store data in attributes -->
+            <div class="favorite-item" data-title="📚 Reading" data-extra="Personal Growth, Non-fiction">📚 Reading</div>
+            <div class="favorite-item" data-title="🎥 Movies" data-extra="Astral City">🎥 Movies</div>
+            <div class="favorite-item" data-title="🐛 Bugs" data-extra="I like edible bugs.">🐛 Bugs</div>
+            <div class="favorite-item" data-title="🧠 DBT & Growth" data-extra="I'm learning to navigate my disabilities.">🧠 DBT & Growth</div>
+            <div class="favorite-item" data-title="👨‍👩‍👧‍👦 Family" data-extra="I have a divided family that I must navigate.">👨‍👩‍👧‍👦 Family</div>
+            <div class="favorite-item" data-title="👥 Friends" data-extra="I value strong, supportive friendships.">👥 Friends</div>
+            <div class="favorite-item" data-title="💻 Coding" data-extra="I've been a developer for over 20 years.">💻 Coding</div>
+            <div class="favorite-item" data-title="🤝 Helping people" data-extra="When I'm at my best, I love helping people.">🤝 Helping people</div>
+            <div class="favorite-item" data-title="🔗 Building meaningful connections" data-extra="I like to make long-lasting relationships with people.">🔗 Building meaningful connections</div>
         </div>
     </section>
 
+    <!-- SUPPORT SECTION -->
     <section class="section">
         <h2>Support My Journey</h2>
-        <p>If you'd like to support me, check out my GoFundMe or TikTok.</p>
-        <p><a href="https://www.gofundme.com/manage/keep-adam-and-his-child-together?fss=1" target="_blank">GoFundMe</a></p>
+        <p>If you'd like to support me, please consider donating to my GoFundMe or following me on TikTok for more
+            updates.</p>
+
+        <!-- GoFundMe Banner (clickable) -->
+        <a href="https://www.gofundme.com/manage/keep-adam-and-his-child-together?fss=1" target="_blank">
+            <img src="images/gofundme_banner.jpg" alt="GoFundMe Banner"
+                 style="max-width: 100%; border-radius: 10px; margin-bottom: 10px;">
+        </a>
+
+        <!-- GoFundMe Button -->
+        <p>
+            <a class="donation-button"
+               href="https://www.gofundme.com/manage/keep-adam-and-his-child-together?fss=1"
+               target="_blank">
+                Support on GoFundMe
+            </a>
+        </p>
+
+        <!-- TikTok Embed -->
         <div class="embed-container">
-            <iframe src="https://www.tiktok.com/embed/7460211367799393582" allowfullscreen></iframe>
+            <iframe
+                src="https://www.tiktok.com/embed/7460211367799393582"
+                style="border:none; overflow:hidden"
+                scrolling="no"
+                allowfullscreen>
+            </iframe>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
-        <p>Website by a <a href="https://joerice.me" target="_blank">caring cousin</a> ❤️</p>
+        <p>
+            Website by a <a href="https://joerice.me" target="_blank">caring cousin</a> ❤️
+        </p>
     </footer>
+
+    <!-- SCRIPT FOR CLICK-TO-REVEAL -->
+    <script>
+        const favoriteItems = document.querySelectorAll('.favorite-item');
+
+        favoriteItems.forEach((item) => {
+            // Store the original short text (title) & the extra text in data attributes
+            const titleText = item.getAttribute('data-title');
+            const extraText = item.getAttribute('data-extra');
+
+            item.addEventListener('click', () => {
+                // If already "expanded", revert back to just the title
+                if (item.innerText.includes(':')) {
+                    // Revert to original
+                    item.textContent = titleText;
+                } else {
+                    // Expand: show "title: extra"
+                    item.textContent = `${titleText}: ${extraText}`;
+                }
+            });
+        });
+    </script>
 </body>
 </html>

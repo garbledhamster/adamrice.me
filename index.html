@@ -202,6 +202,43 @@
     footer a:hover {
       text-decoration: underline;
     }
+
+    /* CONTACT FORM STYLING (optional) */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .contact-form label {
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      max-width: 100%;
+      padding: 0.6rem;
+      border: 1px solid var(--section-border);
+      border-radius: 5px;
+      font-family: inherit; /* keep consistent font */
+      resize: vertical;
+    }
+    .contact-form button {
+      background-color: var(--accent-color);
+      color: var(--primary-color);
+      border: none;
+      padding: 0.7rem 1.2rem;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .contact-form button:hover {
+      background-color: #25a973;
+    }
+
   </style>
 </head>
 
@@ -305,7 +342,6 @@
         </p>
 
         <div class="donation-section">
-
           <!-- TikTok Official Embed -->
           <blockquote 
             class="tiktok-embed"
@@ -340,6 +376,49 @@
             Support on GoFundMe
           </a>
         </div>
+      </section>
+
+      <!-- CONTACT FORM SECTION -->
+      <section class="section">
+        <h2>Contact Me</h2>
+        <p>If you'd like to send me a message or get in touch, please fill out the form below.</p>
+
+        <!-- Formspree Contact Form -->
+        <form 
+          action="https://formspree.io/f/mlddvpyv"
+          method="POST"
+          class="contact-form"
+        >
+          <!-- Name -->
+          <label for="name">Your Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            required
+          />
+
+          <!-- Email (use "_replyto" or just "email") -->
+          <label for="email">Your Email</label>
+          <input
+            type="email"
+            name="_replyto"
+            id="email"
+            required
+          />
+
+          <!-- Message -->
+          <label for="message">Your Message</label>
+          <textarea
+            name="message"
+            id="message"
+            rows="5"
+            required
+          ></textarea>
+
+          <!-- Submit Button -->
+          <button type="submit">Send Message</button>
+        </form>
       </section>
     </div>
 

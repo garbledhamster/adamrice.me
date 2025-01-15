@@ -1,142 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- REQUIRED META TAGS -->
-  <meta charset="UTF-8" />
-
-  <!-- Google tag (gtag.js) -->
+  <meta charset="UTF-8">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8H2ZD75CKT"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-8H2ZD75CKT');
   </script>
-
-  <meta name="description"
-        content="Personal and Professional Website for Adam Rice. Learn about Adam's journey, his values, and ways to support him." />
-  <meta name="keywords" content="Adam Rice, personal site, professional profile, DBT, personal journey, resilience" />
-  <meta name="author" content="Adam Rice" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- PAGE TITLE -->
+  <meta name="description" content="Personal and Professional Website for Adam Rice. Learn about Adam's journey, his values, and ways to support him.">
+  <meta name="keywords" content="Adam Rice, personal site, professional profile, DBT, personal journey, resilience">
+  <meta name="author" content="Adam Rice">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Adam Rice | Personal &amp; Professional Overview</title>
-
-  <!-- FAVICONS & MANIFEST -->
   <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
   <link rel="manifest" href="images/favicons/site.webmanifest">
   <link rel="shortcut icon" href="images/favicons/favicon.ico" type="image/x-icon">
-
-  <!-- THEME COLOR -->
-  <meta name="theme-color" content="#1a1a1a" />
-
-  <!-- OPEN GRAPH (FACEBOOK, LINKEDIN, ETC.) -->
-  <meta property="og:title" content="Adam Rice | Personal &amp; Professional Overview" />
-  <meta property="og:description"
-        content="Learn about Adam Rice's journey, professional background, and how to support his goals.">
-  <meta property="og:image" content="images/icon.png" />
-  <meta property="og:url" content="https://adamrice.me" />
-  <meta property="og:type" content="website" />
-
-  <!-- TWITTER CARD -->
+  <meta name="theme-color" content="#1a1a1a">
+  <meta property="og:title" content="Adam Rice | Personal &amp; Professional Overview">
+  <meta property="og:description" content="Learn about Adam Rice's journey, professional background, and how to support his goals.">
+  <meta property="og:image" content="images/icon.png">
+  <meta property="og:url" content="https://adamrice.me">
+  <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Adam Rice | Personal &amp; Professional Overview">
-  <meta name="twitter:description"
-        content="Explore Adam Rice's personal journey and professional profile. Support his mission and discover his skills.">
+  <meta name="twitter:description" content="Explore Adam Rice's personal journey and professional profile. Support his mission and discover his skills.">
   <meta name="twitter:image" content="images/icon.png">
-
-  <!-- STYLE -->
   <style>
     :root {
-      --primary-color: #1a1a1a;    /* Dark background */
-      --secondary-color: #f4f4f4;  /* Light text */
-      --accent-color: #2dce89;     /* Buttons/highlights */
-      --section-border: #4e4e4e;   /* Slightly lighter border for sections */
+      --backgroundColorPrimary: #1a1a1a;
+      --textColorSecondary: #f4f4f4;
+      --highlightColorAccent: #2dce89;
+      --borderColorSection: #4e4e4e;
     }
-
-    /* GLOBAL STYLES */
     * {
       box-sizing: border-box;
     }
-
     body {
       margin: 0;
-      font-family: Georgia, 'Times New Roman', serif; /* Keep the professional serif font */
-      background-color: var(--primary-color);
-      color: var(--secondary-color);
+      font-family: Georgia, 'Times New Roman', serif;
+      background-color: var(--backgroundColorPrimary);
+      color: var(--textColorSecondary);
       text-align: center;
     }
-
-    /* Container with max-width to create large margins on desktop */
-    .container {
+    .contentContainer {
       width: 100%;
       margin: 0 auto;
-      padding: 0 1rem; /* Default mobile padding */
+      padding: 0 1rem;
     }
     @media (min-width: 768px) {
-      .container {
+      .contentContainer {
         max-width: 700px;
         padding: 0 2rem;
       }
     }
     @media (min-width: 1200px) {
-      .container {
+      .contentContainer {
         max-width: 1000px;
         padding: 0 3rem;
       }
     }
-
-    /* HERO BANNER WITH OVERLAY & RETRO FILTER */
-    header.hero-banner {
+    header.heroBanner {
       width: 100%;
-      height: 400px; /* Adjust as desired */
+      height: 400px;
       position: relative;
       overflow: hidden;
-      background: url("images/image05_adam-aiden-hero-banner-with-space-on-left-for-text.png")
-                  top right / cover no-repeat;
+      background: url("images/image05_adam-aiden-hero-banner-with-space-on-left-for-text.png") top right / cover no-repeat;
     }
-    header.hero-banner::after {
+    header.heroBanner::after {
       content: "";
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.2); /* subtle darker overlay for text contrast */
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.2);
       filter: sepia(0.6) saturate(1.2) hue-rotate(-10deg);
     }
-    .hero-content {
-      position: relative; /* so it's not affected by ::after filter */
+    .heroContent {
+      position: relative;
       display: flex;
       flex-direction: column;
-      justify-content: center;   /* vertically center */
-      align-items: flex-start;   /* left-align text */
+      justify-content: center;
+      align-items: flex-start;
       height: 100%;
       padding: 0 20px;
-      max-width: 50%; 
-      margin: 0; 
+      max-width: 50%;
+      margin: 0;
     }
-    .hero-content h1 {
+    .heroContent h1 {
       font-size: 2.8rem;
       margin: 0 0 10px;
-      color: var(--secondary-color);
+      color: var(--textColorSecondary);
       text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
     }
-    .hero-content p {
+    .heroContent p {
       font-size: 1.2rem;
       max-width: 600px;
-      color: var(--secondary-color);
+      color: var(--textColorSecondary);
       text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     }
-
-    /* SECTION WRAPPER */
-    .section-wrapper {
+    .sectionWrapper {
       padding: 2rem 0;
     }
-    .section {
+    .sectionContainer {
       margin: 0 auto;
       padding: 20px;
-      border: 2px solid var(--section-border);
+      border: 2px solid var(--borderColorSection);
       border-radius: 10px;
       max-width: 700px;
       width: 100%;
@@ -146,45 +119,41 @@
     h2 {
       margin-top: 0;
     }
-    .quote {
+    .quoteText {
       font-style: italic;
     }
-
-    /* ABOUT ME (CLICK-TO-REVEAL) */
-    .about-me {
+    .aboutMe {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 10px;
     }
-    .favorite-item {
+    .clickToRevealItem {
       display: inline-block;
       padding: 8px 12px;
-      background-color: var(--accent-color);
-      color: var(--primary-color);
+      background-color: var(--highlightColorAccent);
+      color: var(--backgroundColorPrimary);
       border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
       transition: background-color 0.3s ease, transform 0.3s ease;
-      user-select: none; /* prevent text highlight on tap */
+      user-select: none;
     }
-    .favorite-item:hover {
+    .clickToRevealItem:hover {
       background-color: #25a973;
       transform: translateY(-2px);
     }
-
-    /* DONATION SECTION */
-    .donation-section {
+    .supportSectionContainer {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 10px;
     }
-    .donation-button {
+    .donationButton {
       display: inline-flex;
       align-items: center;
-      background-color: var(--accent-color);
-      color: var(--primary-color);
+      background-color: var(--highlightColorAccent);
+      color: var(--backgroundColorPrimary);
       padding: 10px 20px;
       margin: 10px 0;
       border-radius: 5px;
@@ -192,53 +161,50 @@
       font-weight: bold;
       transition: background-color 0.3s;
     }
-    .donation-button img {
+    .donationButton img {
       width: 24px;
       height: auto;
       margin-right: 8px;
     }
-    .donation-button:hover {
+    .donationButton:hover {
       background-color: #25a973;
     }
-
     footer {
       margin: 30px 0;
       font-size: 0.9rem;
     }
     footer a {
-      color: var(--secondary-color);
+      color: var(--textColorSecondary);
       text-decoration: none;
       font-weight: bold;
     }
     footer a:hover {
       text-decoration: underline;
     }
-
-    /* CONTACT FORM STYLING (optional) */
-    .contact-form {
+    .formContainer {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       gap: 1rem;
       margin-top: 1rem;
     }
-    .contact-form label {
+    .formContainer label {
       font-weight: bold;
       margin-bottom: 0.3rem;
     }
-    .contact-form input,
-    .contact-form textarea {
+    .formContainer input,
+    .formContainer textarea {
       width: 100%;
       max-width: 100%;
       padding: 0.6rem;
-      border: 1px solid var(--section-border);
+      border: 1px solid var(--borderColorSection);
       border-radius: 5px;
-      font-family: inherit; /* keep consistent font */
+      font-family: inherit;
       resize: vertical;
     }
-    .contact-form button {
-      background-color: var(--accent-color);
-      color: var(--primary-color);
+    .formContainer button {
+      background-color: var(--highlightColorAccent);
+      color: var(--backgroundColorPrimary);
       border: none;
       padding: 0.7rem 1.2rem;
       border-radius: 5px;
@@ -246,226 +212,101 @@
       cursor: pointer;
       transition: background-color 0.3s;
     }
-    .contact-form button:hover {
+    .formContainer button:hover {
       background-color: #25a973;
     }
-
-    /* TIKTOK EMBED CONTAINER */
-    .tiktok-container {
+    .tiktokWrapper {
       margin: 20px auto;
-      max-width: 605px; /* Align with TikTok's recommended max-width */
+      max-width: 605px;
       width: 100%;
     }
   </style>
 </head>
-
 <body>
-
-  <!-- HERO BANNER WITH RETRO OVERLAY -->
-  <header class="hero-banner">
-    <div class="hero-content">
+  <header class="heroBanner">
+    <div class="heroContent">
       <h1>Adam Rice</h1>
       <p>A journey of resilience, growth, and love for my child.</p>
     </div>
   </header>
-
-  <!-- MAIN CONTAINER FOR SCROLLABLE CONTENT -->
-  <div class="container">
-    <!-- WELCOME/ABOUT SECTION -->
-    <div class="section-wrapper">
-      <section class="section">
+  <div class="contentContainer">
+    <div class="sectionWrapper">
+      <section class="sectionContainer">
         <h2>Welcome</h2>
-        <p>
-          Hey, I’m Adam. This site reflects who I am: a dedicated father, a lifelong learner,
-          and someone striving for growth every day. I'm navigating life with resilience,
-          working to build a brighter future for myself and my child.
-        </p>
+        <p>Hey, I’m Adam. This site reflects who I am: a dedicated father, a lifelong learner, and someone striving for growth every day. I'm navigating life with resilience, working to build a brighter future for myself and my child.</p>
       </section>
-
-      <!-- PROFESSIONAL BACKGROUND -->
-      <section class="section">
+      <section class="sectionContainer">
         <h2>Professional Background</h2>
-        <p>
-          I have experience in various roles—from customer service to technical troubleshooting.
-          My passion for problem-solving and helping others drives me in every position I hold.
-        </p>
+        <p>I have experience in various roles—from customer service to technical troubleshooting. My passion for problem-solving and helping others drives me in every position I hold.</p>
       </section>
-
-      <!-- FAVORITE QUOTES -->
-      <section class="section">
+      <section class="sectionContainer">
         <h2>Favorite Quotes</h2>
-        <p class="quote">"The only way out is through."</p>
-        <p class="quote">"Life is 10% what happens to us and 90% how we react to it."</p>
+        <p class="quoteText">"The only way out is through."</p>
+        <p class="quoteText">"Life is 10% what happens to us and 90% how we react to it."</p>
       </section>
-
-      <!-- FAVORITE THINGS (CLICK-TO-REVEAL) -->
-      <section class="section">
+      <section class="sectionContainer">
         <h2>About Me (Click each to reveal more)</h2>
-        <div class="about-me">
-          <div class="favorite-item"
-               data-title="📚 Reading"
-               data-extra="Personal Growth, Non-fiction">
-               📚 Reading
-          </div>
-          <div class="favorite-item"
-               data-title="🎥 Movies"
-               data-extra="Astral City">
-               🎥 Movies
-          </div>
-          <div class="favorite-item"
-               data-title="🐛 Bugs"
-               data-extra="I like edible bugs.">
-               🐛 Bugs
-          </div>
-          <div class="favorite-item"
-               data-title="🧠 DBT & Growth"
-               data-extra="I'm learning to navigate my disabilities.">
-               🧠 DBT & Growth
-          </div>
-          <div class="favorite-item"
-               data-title="👨‍👩‍👧‍👦 Family"
-               data-extra="I have a divided family that I must navigate.">
-               👨‍👩‍👧‍👦 Family
-          </div>
-          <div class="favorite-item"
-               data-title="👥 Friends"
-               data-extra="I value strong, supportive friendships.">
-               👥 Friends
-          </div>
-          <div class="favorite-item"
-               data-title="💻 Coding"
-               data-extra="I've been a developer for over 20 years.">
-               💻 Coding
-          </div>
-          <div class="favorite-item"
-               data-title="🤝 Helping people"
-               data-extra="When I'm at my best, I love helping people.">
-               🤝 Helping people
-          </div>
-          <div class="favorite-item"
-               data-title="🔗 Building meaningful connections"
-               data-extra="I like to make long-lasting relationships with people.">
-               🔗 Building meaningful connections
-          </div>
+        <div class="aboutMe">
+          <div class="clickToRevealItem" data-title="📚 Reading" data-extra="Personal Growth, Non-fiction">📚 Reading</div>
+          <div class="clickToRevealItem" data-title="🎥 Movies" data-extra="Astral City">🎥 Movies</div>
+          <div class="clickToRevealItem" data-title="🐛 Bugs" data-extra="I like edible bugs.">🐛 Bugs</div>
+          <div class="clickToRevealItem" data-title="🧠 DBT & Growth" data-extra="I'm learning to navigate my disabilities.">🧠 DBT & Growth</div>
+          <div class="clickToRevealItem" data-title="👨‍👩‍👧‍👦 Family" data-extra="I have a divided family that I must navigate.">👨‍👩‍👧‍👦 Family</div>
+          <div class="clickToRevealItem" data-title="👥 Friends" data-extra="I value strong, supportive friendships.">👥 Friends</div>
+          <div class="clickToRevealItem" data-title="💻 Coding" data-extra="I've been a developer for over 20 years.">💻 Coding</div>
+          <div class="clickToRevealItem" data-title="🤝 Helping people" data-extra="When I'm at my best, I love helping people.">🤝 Helping people</div>
+          <div class="clickToRevealItem" data-title="🔗 Building meaningful connections" data-extra="I like to make long-lasting relationships with people.">🔗 Building meaningful connections</div>
         </div>
       </section>
-
-      <!-- SUPPORT SECTION -->
-      <section class="section">
+      <section class="sectionContainer">
         <h2>Support My Journey</h2>
-        <p>
-          If you'd like to support me, please consider donating to my GoFundMe or 
-          following me on TikTok for more updates.
-        </p>
-
-        <div class="donation-section">
-          <!-- TikTok Official Embed -->
-          <div class="tiktok-container">
-            <blockquote 
-              class="tiktok-embed"
-              cite="https://www.tiktok.com/@yourusername/video/7460211367799393582"
-              data-video-id="7460211367799393582"
-              style="max-width: 605px; min-width: 325px;"
-            >
+        <p>If you'd like to support me, please consider donating to my GoFundMe or following me on TikTok for more updates.</p>
+        <div class="supportSectionContainer">
+          <div class="tiktokWrapper">
+            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@yourusername/video/7460211367799393582" data-video-id="7460211367799393582" style="max-width: 605px; min-width: 325px;">
               <section></section>
             </blockquote>
           </div>
-          <!-- TikTok Embed Script -->
           <script async src="https://www.tiktok.com/embed.js"></script>
-
-          <!-- GoFundMe Banner (clickable) -->
-          <a 
-            href="https://www.gofundme.com/manage/keep-adam-and-his-child-together?fss=1"
-            target="_blank"
-          >
-            <img 
-              src="images/gofundme_banner.jpg" 
-              alt="GoFundMe Banner"
-              style="max-width: 250px; border-radius: 10px;"
-            >
-          </a>
-
-          <!-- Donation button with icon -->
-          <a 
-            class="donation-button"
-            href="https://www.gofundme.com/manage/keep-adam-and-his-child-together?fss=1"
-            target="_blank"
-          >
+         
+          <a class="donationButton" href="https://www.gofundme.com/manage/keep-adam-and-his-child-together?fss=1" target="_blank">
             <img src="images/donate_icon.png" alt="Donation icon">
             Support on GoFundMe
           </a>
         </div>
       </section>
-
-      <!-- CONTACT FORM SECTION -->
-      <section class="section">
-        <h2>Contact Me</h2>
-        <p>If you'd like to send me a message or get in touch, please fill out the form below.</p>
-
-        <!-- Formspree Contact Form -->
-        <form 
-          action="https://formspree.io/f/mlddvpyv"
-          method="POST"
-          class="contact-form"
-        >
-          <!-- Name -->
-          <label for="name">Your Name</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            required
-          />
-
-          <!-- Email (use "_replyto" or just "email") -->
-          <label for="email">Your Email</label>
-          <input
-            type="email"
-            name="_replyto"
-            id="email"
-            required
-          />
-
-          <!-- Message -->
-          <label for="message">Your Message</label>
-          <textarea
-            name="message"
-            id="message"
-            rows="5"
-            required
-          ></textarea>
-
-          <!-- Submit Button -->
+      <section class="sectionContainer">
+        <h2>Contact Me, Please</h2>
+        <blockquote>If you'd like to send me a message or get in touch, please fill out this form below. I'm managing ADHD and navigating challenging child support issues. I have a $300 debt due by January 23, 2025, or I risk jail time. Any support, even $1, would help. Money aside, I really need to know I'm not alone. This is a tough situation, and your words of encouragement mean a lot. Thank you for being here.</blockquote>
+        <form action="https://formspree.io/f/mlddvpyv" method="POST" class="formContainer">
+          <label for="userName">Your Name</label>
+          <input type="text" name="name" id="userName" required>
+          <label for="userEmail">Your Email</label>
+          <input type="email" name="_replyto" id="userEmail" required>
+          <label for="userMessage">Your Message</label>
+          <textarea name="message" id="userMessage" rows="5" required></textarea>
           <button type="submit">Send Message</button>
         </form>
       </section>
     </div>
-
-    <!-- FOOTER -->
+    <hr>
     <footer>
       <p>Website by a <a href="https://joerice.me" target="_blank">caring cousin</a> ❤️</p>
     </footer>
-  </div> <!-- /.container -->
-
-  <!-- SCRIPT FOR CLICK-TO-REVEAL FAVORITE ITEMS -->
+  </div>
   <script>
-    const favoriteItems = document.querySelectorAll('.favorite-item');
-
-    favoriteItems.forEach((item) => {
-      const titleText = item.getAttribute('data-title');
-      const extraText = item.getAttribute('data-extra');
-
+    const revealItems = document.querySelectorAll('.clickToRevealItem');
+    revealItems.forEach(item => {
+      const defaultTitle = item.getAttribute('data-title');
+      const extraInfo = item.getAttribute('data-extra');
       item.addEventListener('click', () => {
-        // If the text is already expanded (contains a colon), revert to title only
         if (item.textContent.includes(':')) {
-          item.textContent = titleText;
+          item.textContent = defaultTitle;
         } else {
-          // Expand: show "title: extra"
-          item.textContent = `${titleText}: ${extraText}`;
+          item.textContent = defaultTitle + ': ' + extraInfo;
         }
       });
     });
   </script>
-
 </body>
 </html>

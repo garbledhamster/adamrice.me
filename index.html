@@ -3,6 +3,17 @@
 <head>
   <!-- REQUIRED META TAGS -->
   <meta charset="UTF-8" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8H2ZD75CKT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-8H2ZD75CKT');
+  </script>
+
   <meta name="description"
         content="Personal and Professional Website for Adam Rice. Learn about Adam's journey, his values, and ways to support him." />
   <meta name="keywords" content="Adam Rice, personal site, professional profile, DBT, personal journey, resilience" />
@@ -239,6 +250,12 @@
       background-color: #25a973;
     }
 
+    /* TIKTOK EMBED CONTAINER */
+    .tiktok-container {
+      margin: 20px auto;
+      max-width: 605px; /* Align with TikTok's recommended max-width */
+      width: 100%;
+    }
   </style>
 </head>
 
@@ -343,14 +360,16 @@
 
         <div class="donation-section">
           <!-- TikTok Official Embed -->
-          <blockquote 
-            class="tiktok-embed"
-            cite="https://www.tiktok.com/@username/video/7460211367799393582"
-            data-video-id="7460211367799393582"
-            style="max-width: 605px; min-width: 325px;"
-          >
-            <section></section>
-          </blockquote>
+          <div class="tiktok-container">
+            <blockquote 
+              class="tiktok-embed"
+              cite="https://www.tiktok.com/@yourusername/video/7460211367799393582"
+              data-video-id="7460211367799393582"
+              style="max-width: 605px; min-width: 325px;"
+            >
+              <section></section>
+            </blockquote>
+          </div>
           <!-- TikTok Embed Script -->
           <script async src="https://www.tiktok.com/embed.js"></script>
 

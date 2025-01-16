@@ -54,7 +54,7 @@
   /* Push image 50px to the right on screens under 768px */
   @media (max-width: 767px) {
     header.heroBanner {
-      background-position: 50px center;
+      background-position: center;
     }
   }
   

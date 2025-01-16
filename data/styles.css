@@ -1,6 +1,6 @@
 :root {
     /* Soft greens, blues, and yellows for a chill vibe */
-    --backgroundColorPrimary: #FFFBCF;  /* Pastel green for background */
+    --backgroundColorPrimary: #FFFBCF;  /* Pastel yellow for background */
     --textColorSecondary: #253D4E;      /* Dark teal text for contrast */
     --highlightColorAccent: #AFDCEB;    /* Soft pastel blue accent */
     --highlightColorAccent2: #FFFBCF;   /* Pastel yellow for donation buttons, etc. */
@@ -47,7 +47,15 @@
     height: 400px;
     position: relative;
     overflow: hidden;
-    background: url("../images/image05_adam-aiden-hero-banner-with-space-on-left-for-text.png") top right / cover no-repeat;
+    background: url("../images/image05_adam-aiden-hero-banner-with-space-on-left-for-text.png")
+      top right / cover no-repeat;
+  }
+  
+  /* Push image 50px to the right on screens under 768px */
+  @media (max-width: 767px) {
+    header.heroBanner {
+      background-position: 50px center;
+    }
   }
   
   header.heroBanner::after {
@@ -57,15 +65,14 @@
     left: 0; 
     right: 0; 
     bottom: 0;
-    /* Darken the overlay a bit for better text visibility */
-    background: rgba(0, 0, 0, 0.3); 
-    /* If you have a filter, reduce or remove it if it's washing out the text */
-    filter: none;
-    /* Put the overlay behind the text */
-    z-index: 0;
+    background: rgba(0, 0, 0, 0.3);  /* Dark overlay for better text contrast */
+    filter: none;                   /* Remove any additional filters if washing out text */
+    z-index: 0;                     /* Ensure overlay is behind text */
   }
+  
   .heroContent {
-    position: relative;
+    position: relative;             /* Keep text above overlay */
+    z-index: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -75,39 +82,31 @@
     max-width: 50%;
     margin: 0;
   }
-  .heroContent {
-    position: relative;
-    /* Ensure hero text is above overlay */
-    z-index: 1;
+  
+  /* Hero Text */
+  .heroContent h1,
+  .heroContent p {
+    color: var(--highlightColorAccent);   /* Light pastel blue text color */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
   }
+  
   .heroContent h1 {
     font-size: 2.8rem;
     margin: 0 0 10px;
-    color: var(--textColorSecondary);
-    /* Minimal, subtle text shadow */
-    text-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
   }
   
   .heroContent p {
     font-size: 1.2rem;
     max-width: 600px;
-    color: var(--textColorSecondary);
-    text-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
   }
-  .heroContent h1, 
-.heroContent p {
-  /* Make text lighter to stand out on dark overlay */
-  color: var(--highlightColorAccent); 
-  /* Stronger shadow for clarity */
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
-}
+  
   /* Sections */
   .sectionWrapper {
     padding: 2rem 0;
   }
   
   .sectionContainer {
-    margin: 0 auto 40px auto;
+    margin: 0 auto 40px;
     padding: 20px;
     border: 2px solid var(--borderColorSection);
     border-radius: 10px;
@@ -136,13 +135,13 @@
   .clickToRevealItem {
     display: inline-block;
     padding: 8px 12px;
-    background-color: var(--highlightColorAccent); /* Pastel Blue */
+    background-color: var(--highlightColorAccent);
     color: var(--textColorSecondary);
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
     user-select: none;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
   }
   
   .clickToRevealItem:hover {
@@ -151,18 +150,12 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
   
-  /* Support Section */
-  .supportSectionContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-  
+  /* Shared Button Styles (Donation + Form Buttons) */
+  button,
   .donationButton {
     display: inline-flex;
     align-items: center;
-    background-color: var(--highlightColorAccent); /* Pastel Yellow */
+    background-color: var(--highlightColorAccent);
     color: var(--textColorSecondary);
     padding: 10px 20px;
     margin: 10px 0;
@@ -170,21 +163,29 @@
     text-decoration: none;
     font-weight: bold;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-
+    cursor: pointer;
   }
   
-
-
+  button:hover,
+  .donationButton:hover {
+    background-color: var(--borderColorSection); 
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Donation Button Image */
   .donationButton img {
     width: 24px;
     height: auto;
     margin-right: 8px;
   }
   
-  .donationButton:hover {
-    background-color: var(--borderColorSection); /* Slightly deeper yellow on hover */
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  /* Support Section Container */
+  .supportSectionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
   }
   
   /* Footer */
@@ -226,29 +227,5 @@
     border-radius: 5px;
     font-family: inherit;
     resize: vertical;
-  }
-  
-  .formContainer button {
-    display: inline-flex;
-    align-items: center;
-    background-color: var(--highlightColorAccent); /* Pastel Yellow */
-    color: var(--textColorSecondary);
-    padding: 10px 20px;
-    margin: 10px 0;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-  }
-  
-  .formContainer button:hover {
-    background-color: var(--borderColorSection); /* Slightly deeper yellow on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  }
-  
-  .tiktokWrapper {
-    margin: 20px auto;
-    max-width: 605px;
-    width: 100%;
   }
   

@@ -7,7 +7,9 @@
     --borderColorSection: #8EBCCC;      /* Slightly darker blue for borders */
   }
   
-  /* Base */
+  /* =======================
+     Base + Global Styles
+     ======================= */
   * {
     box-sizing: border-box;
   }
@@ -27,6 +29,11 @@
     padding: 0 1rem;
   }
   
+  /* =====================================
+     Default/Global Breakpoints
+     (scaling up from small to large)
+     ===================================== */
+  
   @media (min-width: 768px) {
     .contentContainer {
       max-width: 700px;
@@ -41,23 +48,19 @@
     }
   }
   
-  /* Hero Banner */
+  /* ==============================
+     Hero Banner + Overlay
+     ============================== */
   header.heroBanner {
     width: 100%;
-    height: 400px;
+    min-height: 400px; /* Use min-height for responsive flexibility */
     position: relative;
     overflow: hidden;
     background: url("../images/image05_adam-aiden-hero-banner-with-space-on-left-for-text.png")
-      top right / cover no-repeat;
+      center / cover no-repeat;
   }
   
-  /* Push image 50px to the right on screens under 768px */
-  @media (max-width: 767px) {
-    header.heroBanner {
-      background-position: center;
-    }
-  }
-  
+  /* Dark overlay to ensure text contrast */
   header.heroBanner::after {
     content: "";
     position: absolute;
@@ -65,13 +68,13 @@
     left: 0; 
     right: 0; 
     bottom: 0;
-    background: rgba(0, 0, 0, 0.3);  /* Dark overlay for better text contrast */
-    filter: none;                   /* Remove any additional filters if washing out text */
-    z-index: 0;                     /* Ensure overlay is behind text */
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
   }
   
+  /* Hero content area */
   .heroContent {
-    position: relative;             /* Keep text above overlay */
+    position: relative;
     z-index: 1;
     display: flex;
     flex-direction: column;
@@ -83,10 +86,10 @@
     margin: 0;
   }
   
-  /* Hero Text */
+  /* Hero text styling */
   .heroContent h1,
   .heroContent p {
-    color: var(--highlightColorAccent);   /* Light pastel blue text color */
+    color: var(--highlightColorAccent);
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
   }
   
@@ -100,7 +103,9 @@
     max-width: 600px;
   }
   
-  /* Sections */
+  /* ==============================
+     Section Wrappers + Containers
+     ============================== */
   .sectionWrapper {
     padding: 2rem 0;
   }
@@ -124,7 +129,9 @@
     font-style: italic;
   }
   
-  /* About Me (Click to Reveal) */
+  /* ==============================
+     About Me: Click to Reveal Items
+     ============================== */
   .aboutMe {
     display: flex;
     flex-wrap: wrap;
@@ -145,12 +152,14 @@
   }
   
   .clickToRevealItem:hover {
-    background-color: #91c7db; /* Slightly deeper blue on hover */
+    background-color: #91c7db;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
   
-  /* Shared Button Styles (Donation + Form Buttons) */
+  /* =========================
+     Shared Button Styles
+     ========================= */
   button,
   .donationButton {
     display: inline-flex;
@@ -168,7 +177,7 @@
   
   button:hover,
   .donationButton:hover {
-    background-color: var(--borderColorSection); 
+    background-color: var(--borderColorSection);
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
@@ -180,7 +189,9 @@
     margin-right: 8px;
   }
   
-  /* Support Section Container */
+  /* =========================
+     Support Section Container
+     ========================= */
   .supportSectionContainer {
     display: flex;
     flex-direction: column;
@@ -188,7 +199,9 @@
     gap: 10px;
   }
   
-  /* Footer */
+  /* =========================
+     Footer
+     ========================= */
   footer {
     margin: 30px 0;
     font-size: 0.9rem;
@@ -204,7 +217,9 @@
     text-decoration: underline;
   }
   
-  /* Contact Form */
+  /* =========================
+     Contact Form
+     ========================= */
   .formContainer {
     display: flex;
     flex-direction: column;
@@ -229,19 +244,52 @@
     resize: vertical;
   }
   
-
-/* Make hero banner + text more flexible on extra-small screens */
-@media (max-width: 480px) {
+  /* =========================================================
+     ADDITIONAL MEDIA QUERIES FOR SMALL & LARGE "MOBILE" SIZES
+     ========================================================= */
+  
+  /* 
+     Why do these small breakpoints matter for big phones?
+     Because big phones (like Pixel 8 Pro, 1344×2992) 
+     often have a high device pixel ratio (e.g. 3),
+     so they still report ~448px wide in CSS pixels.
+  */
+  
+  /* 1) Small Mobile (up to ~400px CSS width) */
+  @media (max-width: 400px) {
     header.heroBanner {
       min-height: 300px;
       background-position: center center;
     }
   
     .heroContent {
-      max-width: 80%;
+      max-width: 90%;
       padding: 0 10px;
-      align-items: left; /* center text for smaller screens if desired */
-      text-align: left;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .heroContent h1 {
+      font-size: 1.8rem;
+    }
+  
+    .heroContent p {
+      font-size: 0.95rem;
+    }
+  }
+  
+  /* 2) General Mobile (401px to ~600px CSS width) */
+  @media (min-width: 401px) and (max-width: 600px) {
+    header.heroBanner {
+      min-height: 320px;
+      background-position: center;
+    }
+  
+    .heroContent {
+      max-width: 85%;
+      padding: 0 10px;
+      align-items: center;
+      text-align: center;
     }
   
     .heroContent h1 {
@@ -252,3 +300,50 @@
       font-size: 1rem;
     }
   }
+  
+  /* 3) Larger Phones (601px to ~767px CSS width) */
+  @media (min-width: 601px) and (max-width: 767px) {
+    header.heroBanner {
+      min-height: 350px;
+      background-position: center;
+    }
+  
+    .heroContent {
+      max-width: 80%;
+      padding: 0 15px;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .heroContent h1 {
+      font-size: 2.2rem;
+    }
+  
+    .heroContent p {
+      font-size: 1.05rem;
+    }
+  }
+  
+  /* 4) Tablets (768px to ~1023px CSS width) */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    /* Example: Tweak for tablets if needed */
+    header.heroBanner {
+      min-height: 400px;
+    }
+    /* Additional tablet styles could go here */
+  }
+  
+  /* 5) Laptops / Small Desktops (1024px to 1199px) */
+  @media (min-width: 1024px) and (max-width: 1199px) {
+    /* Example: Tweak for small desktops if needed */
+    .heroContent h1 {
+      font-size: 2.6rem;
+    }
+    /* Additional small desktop styles could go here */
+  }
+  
+  /* 6) Large Desktops (1200px and above) */
+  @media (min-width: 1200px) {
+    /* Original / default styles usually handle large screens well */
+  }
+  

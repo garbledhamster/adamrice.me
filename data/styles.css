@@ -12,10 +12,11 @@
      ======================= */
   * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
   
   body {
-    margin: 0;
     font-family: Georgia, 'Times New Roman', serif;
     background-color: var(--backgroundColorPrimary);
     color: var(--textColorSecondary);
@@ -24,28 +25,11 @@
   }
   
   .contentContainer {
-    width: 100%;
+    /* A flexible container that adapts to various screen widths */
+    max-width: 1000px;   /* Enough to not blow up on large desktops */
+    width: 90%;          /* Fluid for smaller devices */
     margin: 0 auto;
-    padding: 0 1rem;
-  }
-  
-  /* =====================================
-     Default/Global Breakpoints
-     (scaling up from small to large)
-     ===================================== */
-  
-  @media (min-width: 768px) {
-    .contentContainer {
-      max-width: 700px;
-      padding: 0 2rem;
-    }
-  }
-  
-  @media (min-width: 1200px) {
-    .contentContainer {
-      max-width: 1000px;
-      padding: 0 3rem;
-    }
+    padding: 1rem;
   }
   
   /* ==============================
@@ -53,15 +37,15 @@
      ============================== */
   header.heroBanner {
     width: 100%;
-    min-height: 400px; /* Use min-height for responsive flexibility */
+    min-height: 400px; /* Keeps the banner visible without cutting off on large screens */
     position: relative;
     overflow: hidden;
-    background: url("../images/image05_adam-aiden-hero-banner-with-space-on-left-for-text.png")
+    background: url("../images/image05_adam-aiden-hero-banner-with-space-on-left-for-text.png") 
       center / cover no-repeat;
   }
   
-  /* Dark overlay to ensure text contrast */
   header.heroBanner::after {
+    /* Dark overlay to ensure text contrast */
     content: "";
     position: absolute;
     top: 0; 
@@ -81,8 +65,7 @@
     justify-content: center;
     align-items: flex-start;
     height: 100%;
-    padding: 0 20px;
-    max-width: 50%;
+    padding: 20px;
     margin: 0;
   }
   
@@ -95,7 +78,7 @@
   
   .heroContent h1 {
     font-size: 2.8rem;
-    margin: 0 0 10px;
+    margin-bottom: 10px;
   }
   
   .heroContent p {
@@ -236,114 +219,10 @@
   .formContainer input,
   .formContainer textarea {
     width: 100%;
-    max-width: 100%;
     padding: 0.6rem;
     border: 1px solid var(--borderColorSection);
     border-radius: 5px;
     font-family: inherit;
     resize: vertical;
-  }
-  
-  /* =========================================================
-     ADDITIONAL MEDIA QUERIES FOR SMALL & LARGE "MOBILE" SIZES
-     ========================================================= */
-  
-  /* 
-     Why do these small breakpoints matter for big phones?
-     Because big phones (like Pixel 8 Pro, 1344×2992) 
-     often have a high device pixel ratio (e.g. 3),
-     so they still report ~448px wide in CSS pixels.
-  */
-  
-  /* 1) Small Mobile (up to ~400px CSS width) */
-  @media (max-width: 400px) {
-    header.heroBanner {
-      min-height: 300px;
-      background-position: center center;
-    }
-  
-    .heroContent {
-      max-width: 90%;
-      padding: 0 10px;
-      align-items: center;
-      text-align: center;
-    }
-  
-    .heroContent h1 {
-      font-size: 1.8rem;
-    }
-  
-    .heroContent p {
-      font-size: 0.95rem;
-    }
-  }
-  
-  /* 2) General Mobile (401px to ~600px CSS width) */
-  @media (min-width: 401px) and (max-width: 600px) {
-    header.heroBanner {
-      min-height: 320px;
-      background-position: center;
-    }
-  
-    .heroContent {
-      max-width: 85%;
-      padding: 0 10px;
-      align-items: center;
-      text-align: center;
-    }
-  
-    .heroContent h1 {
-      font-size: 2rem;
-    }
-  
-    .heroContent p {
-      font-size: 1rem;
-    }
-  }
-  
-  /* 3) Larger Phones (601px to ~767px CSS width) */
-  @media (min-width: 601px) and (max-width: 767px) {
-    header.heroBanner {
-      min-height: 350px;
-      background-position: center;
-    }
-  
-    .heroContent {
-      max-width: 80%;
-      padding: 0 15px;
-      align-items: center;
-      text-align: center;
-    }
-  
-    .heroContent h1 {
-      font-size: 2.2rem;
-    }
-  
-    .heroContent p {
-      font-size: 1.05rem;
-    }
-  }
-  
-  /* 4) Tablets (768px to ~1023px CSS width) */
-  @media (min-width: 768px) and (max-width: 1023px) {
-    /* Example: Tweak for tablets if needed */
-    header.heroBanner {
-      min-height: 400px;
-    }
-    /* Additional tablet styles could go here */
-  }
-  
-  /* 5) Laptops / Small Desktops (1024px to 1199px) */
-  @media (min-width: 1024px) and (max-width: 1199px) {
-    /* Example: Tweak for small desktops if needed */
-    .heroContent h1 {
-      font-size: 2.6rem;
-    }
-    /* Additional small desktop styles could go here */
-  }
-  
-  /* 6) Large Desktops (1200px and above) */
-  @media (min-width: 1200px) {
-    /* Original / default styles usually handle large screens well */
   }
   

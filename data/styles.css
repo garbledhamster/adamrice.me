@@ -229,3 +229,26 @@
     resize: vertical;
   }
   
+
+/* Make hero banner + text more flexible on extra-small screens */
+@media (max-width: 480px) {
+    header.heroBanner {
+      min-height: 300px;
+      background-position: center center;
+    }
+  
+    .heroContent {
+      max-width: 80%;
+      padding: 0 10px;
+      align-items: left; /* center text for smaller screens if desired */
+      text-align: left;
+    }
+  
+    .heroContent h1 {
+      font-size: 2rem;
+    }
+  
+    .heroContent p {
+      font-size: 1rem;
+    }
+  }

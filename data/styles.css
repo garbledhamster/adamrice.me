@@ -26,7 +26,7 @@
   
   .contentContainer {
     /* A flexible container that adapts to various screen widths */
-    max-width: 1000px;   /* Enough to not blow up on large desktops */
+    max-width: 1000px;   /* Enough for large desktops */
     width: 90%;          /* Fluid for smaller devices */
     margin: 0 auto;
     padding: 1rem;
@@ -37,7 +37,7 @@
      ============================== */
   header.heroBanner {
     width: 100%;
-    min-height: 400px; /* Keeps the banner visible without cutting off on large screens */
+    min-height: 400px; 
     position: relative;
     overflow: hidden;
     background: url("../images/image05_adam-aiden-hero-banner-with-space-on-left-for-text.png") 
@@ -65,6 +65,7 @@
     justify-content: center;
     align-items: flex-start;
     height: 100%;
+    max-width: 50%; 
     padding: 20px;
     margin: 0;
   }
@@ -109,7 +110,57 @@
   }
   
   .quoteText {
+    position: relative;             /* So pseudo-elements can be positioned */
+    display: inline-block;          /* Let the quote wrap nicely */
+    margin: 1.5rem auto;            /* Space around the quote */
+    padding: 1rem 1.5rem;           /* Add some inner padding */
     font-style: italic;
+    font-size: 1.1rem;              /* Slightly larger text for emphasis */
+    color: var(--textColorSecondary);
+    background-color: #FAF8B2;      /* Soft background to highlight the quote */
+    border-left: 4px solid var(--borderColorSection);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    text-align: left;               /* Align text to left for a more "quote" look */
+  }
+  
+  /* 🎉 Optional: Fancy curly quotes before & after */
+  .quoteText::before, 
+  .quoteText::after {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 2rem;
+    color: var(--borderColorSection);
+    position: absolute;
+  }
+  
+  .quoteText::before {
+    content: "“";
+    left: 15px;
+    top: 5px; /* Adjust to visually line up with your text */
+  }
+  
+  .quoteText::after {
+    content: "”";
+    right: 15px;
+    bottom: 5px; /* Adjust to visually line up with your text */
+  }
+  
+  /* 
+    🎉 List Styling
+    - UL margin/padding for breathing space 
+    - LI indentation + smaller font for a nicer look
+  */
+  .sectionContainer ul {
+    list-style-type: disc;   
+    list-style-position: outside; 
+    margin: 1rem 2rem; 
+    padding: 0;
+  }
+  
+  .sectionContainer li {
+    margin-left: 1.5rem;   /* Indent bullets nicely */
+    margin-bottom: 0.5rem; /* Space between items */
+    font-size: 0.95rem;    /* Slightly smaller font for clarity */
   }
   
   /* ==============================
@@ -190,6 +241,10 @@
     font-size: 0.9rem;
   }
   
+  hr {
+    margin: 20px;
+  }
+
   footer a {
     color: var(--textColorSecondary);
     text-decoration: none;
